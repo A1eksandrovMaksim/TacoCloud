@@ -3,14 +3,23 @@ package com.example.TacoCloud;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 
 @Data
-public class TacoOrder {
+@Table("taco_order")
+public class TacoOrder implements Serializable{
+    
+    private final static long serialVersionUID = 1L;
+    
+    @Id
+    private Long id;
     
     @NotBlank(message="Delivery name is required")
     private String deliveryName;
