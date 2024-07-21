@@ -13,7 +13,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 
 @Data
-@Table("taco_order")
+@Table
 public class TacoOrder implements Serializable{
     
     private final static long serialVersionUID = 1L;

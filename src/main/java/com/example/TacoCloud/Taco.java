@@ -11,6 +11,8 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table
 public class Taco {
     
+    private Long id;
+    
     @NotNull
     @Size(min=5, message="Name must be at least 5 characters long")
     private String name;
