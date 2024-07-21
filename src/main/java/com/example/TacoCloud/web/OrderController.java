@@ -1,5 +1,6 @@
 package com.example.TacoCloud.web;
 
+import com.example.TacoCloud.Taco;
 import com.example.TacoCloud.TacoOrder;
 import com.example.TacoCloud.data.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +38,10 @@ public class OrderController {
             return "orderForm";
         }
         
+        long i = 0;
+        for(Taco taco : order.getTacos()){
+            taco.setTacoOrderKey(i++);
+        }
         orderRepository.save(order);
         log.info("Order submitted: {}", order);
         sessionStatus.setComplete();

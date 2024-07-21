@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
@@ -20,6 +21,8 @@ public class TacoOrder implements Serializable{
     
     @Id
     private Long id;
+    
+    private Date placedAt = new Date();
     
     @NotBlank(message="Delivery name is required")
     private String deliveryName;
