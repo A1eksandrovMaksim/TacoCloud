@@ -1,11 +1,13 @@
 package com.example.TacoCloud;
 
+import com.example.TacoCloud.security.UserData;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
@@ -55,6 +57,9 @@ public class TacoOrder {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")
     private List<Taco> tacos = new ArrayList<>();
+    
+    @ManyToOne
+    private UserData userData;
 
     public void addTaco(Taco taco) {
         this.tacos.add(taco);
